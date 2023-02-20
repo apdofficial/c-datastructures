@@ -1,4 +1,4 @@
-#include "utest.h"
+#include "../utest.h"
 #include <stdlib.h>
 #include "data_structures.h"
 #include "../src/common.h"
