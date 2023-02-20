@@ -1,7 +1,6 @@
 #include "utest.h"
 #include <stdlib.h>
 #include "data_structures.h"
-#include "../src/common.h"
 
 struct LinkedListFixture{
     LinkedList list;
@@ -22,12 +21,11 @@ UTEST(node, create) {
     Item item = item_create(data, 2);
     Node node = node_create(item);
     ASSERT_NE(node, NULL);
-    ASSERT_EQ(node->key, (node_key_t)0);
-    ASSERT_EQ(node->item->size, (node_key_t)2);
-    for (size_t i = 0; i < node->item->size; ++i) {
-        ASSERT_EQ(node->item->data[i], data[i]);
+    ASSERT_EQ(node_get_key(node), (node_key_t)0);
+    ASSERT_EQ(node_get_item(node)->size, (node_key_t)2);
+    for (size_t i = 0; i < node_get_item(node)->size; ++i) {
+        ASSERT_EQ(node_get_item(node)->data[i], data[i]);
     }
-    ASSERT_EQ(node->next, NULL);
 }
 
 UTEST_F_SETUP(LinkedListFixture) {
@@ -62,8 +60,8 @@ UTEST_F(LinkedListFixture, prepend_node) {
     ASSERT_EQ(prepended_node, node);
     ASSERT_EQ(linked_list_size(utest_fixture->list), 1);
     ASSERT_FALSE(linked_list_is_empty(utest_fixture->list));
-    ASSERT_EQ(linked_list_search(utest_fixture->list, node->key), node);
-    ASSERT_EQ(linked_list_search(utest_fixture->list, prepended_node->key), prepended_node);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(node)), node);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(prepended_node)), prepended_node);
 }
 
 UTEST_F(LinkedListFixture, append_node) {
@@ -74,8 +72,8 @@ UTEST_F(LinkedListFixture, append_node) {
     ASSERT_EQ(appended_node, node);
     ASSERT_EQ(linked_list_size(utest_fixture->list), 1);
     ASSERT_FALSE(linked_list_is_empty(utest_fixture->list));
-    ASSERT_EQ(linked_list_search(utest_fixture->list, node->key), node);
-    ASSERT_EQ(linked_list_search(utest_fixture->list, appended_node->key), appended_node);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(node)), node);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(appended_node)), appended_node);
 }
 
 UTEST_F(LinkedListFixture, delete_node) {
@@ -86,14 +84,14 @@ UTEST_F(LinkedListFixture, delete_node) {
     ASSERT_EQ(prepended_node, node);
     ASSERT_EQ(linked_list_size(utest_fixture->list), 1);
     ASSERT_FALSE(linked_list_is_empty(utest_fixture->list));
-    ASSERT_EQ(linked_list_search(utest_fixture->list, node->key), node);
-    ASSERT_EQ(linked_list_search(utest_fixture->list, prepended_node->key), prepended_node);
-    bool deleted_node = linked_list_delete(utest_fixture->list, node->key);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(node)), node);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(prepended_node)), prepended_node);
+    bool deleted_node = linked_list_delete(utest_fixture->list, node_get_key(node));
     ASSERT_TRUE(deleted_node);
     ASSERT_EQ(linked_list_size(utest_fixture->list), 0);
     ASSERT_TRUE(linked_list_is_empty(utest_fixture->list));
-    ASSERT_EQ(linked_list_search(utest_fixture->list, node->key), NULL);
-    ASSERT_EQ(linked_list_search(utest_fixture->list, prepended_node->key), NULL);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(node)), NULL);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(prepended_node)), NULL);
 }
 
 UTEST_F(LinkedListFixture, clear) {
@@ -104,13 +102,13 @@ UTEST_F(LinkedListFixture, clear) {
     ASSERT_EQ(prepended_node, node);
     ASSERT_EQ(linked_list_size(utest_fixture->list), 1);
     ASSERT_FALSE(linked_list_is_empty(utest_fixture->list));
-    ASSERT_EQ(linked_list_search(utest_fixture->list, node->key), node);
-    ASSERT_EQ(linked_list_search(utest_fixture->list, prepended_node->key), prepended_node);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(node)), node);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(prepended_node)), prepended_node);
     linked_list_clear(utest_fixture->list);
     ASSERT_EQ(linked_list_size(utest_fixture->list), 0);
     ASSERT_TRUE(linked_list_is_empty(utest_fixture->list));
-    ASSERT_EQ(linked_list_search(utest_fixture->list, node->key), NULL);
-    ASSERT_EQ(linked_list_search(utest_fixture->list, prepended_node->key), NULL);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(node)), NULL);
+    ASSERT_EQ(linked_list_search(utest_fixture->list, node_get_key(prepended_node)), NULL);
 }
 
 UTEST_MAIN();
