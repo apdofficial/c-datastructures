@@ -4,6 +4,7 @@ macro(add_test_file NAME)
 	add_test(NAME ${NAME} COMMAND $<TARGET_FILE:${NAME}>)
 	set_target_properties(${NAME} PROPERTIES C_STANDARD 11)
 	target_compile_options(${NAME} PUBLIC -Wall -Wextra)
+	target_link_libraries(${NAME} PRIVATE data_structures_lib)
 endmacro(add_test_file)
 
 add_test_file(test_linked_list)
