@@ -90,6 +90,11 @@ void queue_print(Queue queue) {
     printf("\n");
 }
 
+Item queue_peek(Queue queue){
+    if (!queue) return NULL;
+    if (queue_is_empty(queue)) return NULL;
+    return queue->head->item;
+}
 
 
 

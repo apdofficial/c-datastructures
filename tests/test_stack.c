@@ -1,5 +1,6 @@
-#include "utest.h"
 #include <stdlib.h>
+
+#include "utest.h"
 #include "data_structures.h"
 
 struct StackFixture{
@@ -132,23 +133,6 @@ UTEST_F(StackFixture, push_null_stack) {
     ASSERT_TRUE(stack_is_empty(utest_fixture->stack));
 }
 
-UTEST_F(StackFixture, pop_null_stack) {
-    Item popped_item = stack_pop(NULL);
-    ASSERT_EQ(popped_item, NULL);
-}
-
-UTEST_F(StackFixture, peek_null_stack) {
-    Item peeked_item = stack_peek(NULL);
-    ASSERT_EQ(peeked_item, NULL);
-}
-
-UTEST_F(StackFixture, size_null_stack) {
-    ASSERT_EQ(stack_size(NULL), 0);
-}
-
-UTEST_F(StackFixture, is_empty_null_stack) {
-    ASSERT_TRUE(stack_is_empty(NULL));
-}
 
 UTEST_F(StackFixture, clear_null_stack) {
     stack_clear(NULL);

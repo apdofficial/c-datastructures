@@ -1,5 +1,6 @@
-#include "utest.h"
 #include <stdlib.h>
+
+#include "utest.h"
 #include "data_structures.h"
 
 struct LinkedListFixture{
