@@ -3,6 +3,7 @@
 
 void example_linked_list(){
     puts("\nexample_linked_list start");
+    
     LinkedList list = linked_list_create();
     Node helloNode1 = node_create(item_create("Hello1", 5));
     linked_list_append(list, helloNode1);
@@ -27,7 +28,7 @@ void example_linked_list(){
 
 void example_stack(){
     puts("\nexample_stack start");
-    // create example for stack
+
     Stack stack = stack_create();
     Item item1 = item_create("Hello1", 5);
     stack_push(stack, item1);
@@ -53,10 +54,10 @@ void example_stack(){
     puts("\nexample_stack end");
 }
 
-// create example_queue function
+
 void example_queue(){
     puts("\nexample_queue start");
-    // create example for queue
+
     Queue queue = queue_create();
     Item item1 = item_create("Hello1", 5);
     queue_enqueue(queue, item1);
