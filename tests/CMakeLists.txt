@@ -1,6 +1,6 @@
 macro(add_test_file NAME)
 	add_executable(${NAME})
-	target_sources(${NAME} PRIVATE ${NAME}.c)
+	target_sources(${NAME} PRIVATE ${NAME}.c )
 	set_target_properties(${NAME} PROPERTIES COMPILE_OPTIONS "-Wno-unused")
     target_link_libraries(${NAME} PRIVATE data_structures_lib)
 	set_target_properties(${NAME} PROPERTIES C_STANDARD 11)
