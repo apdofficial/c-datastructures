@@ -4,8 +4,7 @@
 #include "common_public.h"
 
 #include "linked_list.h"
-#include "stack.h"
 #include "queue.h"
+#include "stack.h"
 
-
-#endif //DATA_STRUCTURES_DATA_STRUCTURES_H
+#endif  // DATA_STRUCTURES_DATA_STRUCTURES_H

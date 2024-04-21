@@ -5,17 +5,17 @@
 #include "common_public.h"
 
 // opaque types
-typedef struct Stack* Stack;
+typedef struct Stack Stack;
 
 /**,
  * Stack
  *
  * Stacks and queues are dynamic sets in which the element removed from
- * the set by the DELETE operation is prespecified. In a stack, the element
+ * the set by the DELETE operation is pre-specified. In a stack, the element
  * deleted is the most recently inserted.
  *
  * Source: Introduction to Algorithms, Fourth Edition, Cormen et. al.
-*/
+ */
 
 /**
  * Create a new stack.
@@ -23,7 +23,7 @@ typedef struct Stack* Stack;
  * Space Complexity: O(1)
  * @return pointer to the new stack, or NULL if the stack could not be created.
  */
-Stack stack_create();
+Stack* stack_create();
 
 /**
  * Empty the stack.
@@ -31,7 +31,7 @@ Stack stack_create();
  * Space Complexity: O(1)
  * @param stack
  */
-void stack_clear(Stack stack);
+void stack_clear(Stack* stack);
 
 /**
  * Get the size of the stack.
@@ -40,7 +40,7 @@ void stack_clear(Stack stack);
  * @param stack
  * @return size of the stack, or -1 if the stack is NULL.
  */
-int stack_size(Stack stack);
+int stack_size(Stack* stack);
 
 /**
  * Check if the stack is empty.
@@ -49,7 +49,7 @@ int stack_size(Stack stack);
  * @param stack
  * @return true if the stack is empty, false otherwise.
  */
-bool stack_is_empty(Stack stack);
+bool stack_is_empty(Stack* stack);
 
 /**
  * Push an item to the stack.
@@ -58,7 +58,7 @@ bool stack_is_empty(Stack stack);
  * @param stack
  * @param item
  */
-void stack_push(Stack stack, Item item);
+void stack_push(Stack* stack, Item* item);
 
 /**
  * Pop an item from the stack.
@@ -67,7 +67,7 @@ void stack_push(Stack stack, Item item);
  * @param stack
  * @return item from the stack, or NULL if the stack is empty.
  */
-Item stack_pop(Stack stack);
+Item* stack_pop(Stack* stack);
 
 /**
  * Peek at the top of the stack.
@@ -76,7 +76,7 @@ Item stack_pop(Stack stack);
  * @param stack
  * @return item from the stack, or NULL if the stack is empty.
  */
-Item stack_peek(Stack stack);
+Item* stack_peek(Stack* stack);
 
 /**
  * Print the stack.
@@ -84,7 +84,6 @@ Item stack_peek(Stack stack);
  * Space Complexity: O(1)
  * @param stack
  */
-void stack_print(Stack stack);
+void stack_print(Stack* stack);
 
-
-#endif //DATA_STRUCTURES_STACK_H
+#endif  // DATA_STRUCTURES_STACK_H

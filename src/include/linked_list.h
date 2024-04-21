@@ -5,7 +5,7 @@
 #include "common_public.h"
 
 // opaque types
-typedef struct LinkedList* LinkedList;
+typedef struct LinkedList LinkedList;
 
 /**,
  * Doubly-linked list
@@ -14,12 +14,12 @@ typedef struct LinkedList* LinkedList;
  * also contains a link to a head.
  *
  * Source: Introduction to Algorithms, Fourth Edition, Cormen et. al.
-*/
+ */
 
 /**
  * Node of the linked list.
  */
-LinkedList linked_list_create();
+LinkedList* linked_list_create();
 
 /**
  * Empty the list.
@@ -27,7 +27,7 @@ LinkedList linked_list_create();
  * Space Complexity: O(1)
  * @param list
  */
-void linked_list_clear(LinkedList list);
+void linked_list_clear(LinkedList* list);
 
 /**
  * Get the size of the list.
@@ -36,7 +36,7 @@ void linked_list_clear(LinkedList list);
  * @param list
  * @return size of the list, or -1 if the list is NULL.
  */
-int linked_list_size(LinkedList list);
+int linked_list_size(LinkedList* list);
 
 /**
  * Check if the list is empty.
@@ -45,7 +45,7 @@ int linked_list_size(LinkedList list);
  * @param list
  * @return true if the list is empty, false otherwise.
  */
-bool linked_list_is_empty(LinkedList list);
+bool linked_list_is_empty(LinkedList* list);
 
 /**
  * Search for a first occurrence of a node with a given key.
@@ -55,7 +55,7 @@ bool linked_list_is_empty(LinkedList list);
  * @param key
  * @return pointer to the node with the given key, or NULL if not found.
  */
-Node linked_list_search(LinkedList list, node_key_t key);
+Node* linked_list_search(LinkedList* list, node_key_t key);
 
 /**
  * Insert a node at the beginning of the list.
@@ -65,7 +65,7 @@ Node linked_list_search(LinkedList list, node_key_t key);
  * @param node
  * @return pointer to the inserted node.
  */
-Node linked_list_prepend(LinkedList list, Node node);
+Node* linked_list_prepend(LinkedList* list, Node* node);
 
 /**
  * Insert a node at the end of the list.
@@ -75,7 +75,7 @@ Node linked_list_prepend(LinkedList list, Node node);
  * @param node
  * @return pointer to the inserted node.
  */
-Node linked_list_append(LinkedList list, Node node);
+Node* linked_list_append(LinkedList* list, Node* node);
 
 /**
  * Insert a node after the given node key.
@@ -86,7 +86,7 @@ Node linked_list_append(LinkedList list, Node node);
  * @param new_node
  * @return pointer to the inserted node.
  */
-bool linked_list_insert(LinkedList list, node_key_t key, Node node);
+bool linked_list_insert(LinkedList* list, node_key_t key, Node* node);
 
 /**
  * Delete a node from the list that matches the given key.
@@ -96,8 +96,7 @@ bool linked_list_insert(LinkedList list, node_key_t key, Node node);
  * @param node
  * @param new_node
  */
-bool linked_list_delete(LinkedList list, node_key_t key);
-
+bool linked_list_delete(LinkedList* list, node_key_t key);
 
 /**
  * Print the list.
@@ -105,6 +104,6 @@ bool linked_list_delete(LinkedList list, node_key_t key);
  * Space Complexity: O(1)
  * @param list
  */
-void linked_list_print(LinkedList list);
+void linked_list_print(LinkedList* list);
 
-#endif //C_DATASTRUCTURES_LINKED_LIST_H
+#endif  // C_DATASTRUCTURES_LINKED_LIST_H

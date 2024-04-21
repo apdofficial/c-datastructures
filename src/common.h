@@ -4,14 +4,14 @@
 #include "common_public.h"
 
 struct Node {
-    node_key_t key;
-    Item item;
-    Node next;
-    Node prev;
+  node_key_t key;
+  Item* item;
+  Node* next;
+  Node* prev;
 };
 
 struct Metadata {
-    int size;
+  int size;
 };
 
-#endif //DATA_STRUCTURES_COMMON_H
+#endif  // DATA_STRUCTURES_COMMON_H
