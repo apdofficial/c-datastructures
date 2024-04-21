@@ -1,0 +1,3 @@
+# Checks: '-*,cppcoreguidelines-*,clang-analyzer-*,readability-*,-cppcoreguidelines-avoid-do-while,-cppcoreguidelines-pro-type-vararg'
+Checks: '* -llvm-*'
+
